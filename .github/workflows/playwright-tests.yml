@@ -10,6 +10,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: PlaywrightDemo  # ✅ Set working dir for all steps
+
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v3
@@ -20,17 +24,16 @@ jobs:
           dotnet-version: 9.0.x
 
       - name: 📁 Restore dependencies
-        run: dotnet restore PlaywrightDemo/PlaywrightDemo.csproj
+        run: dotnet restore
 
       - name: 🚀 Install Playwright CLI and Browsers
         run: |
           dotnet tool install --global Microsoft.Playwright.CLI
           dotnet build --configuration Release
           playwright install
-        working-directory: PlaywrightDemo
 
       - name: 🧪 Run tests
-        run: dotnet test PlaywrightDemo/PlaywrightDemo.csproj --configuration Release --logger "trx;LogFileName=test-results.trx"
+        run: dotnet test --configuration Release --logger "trx;LogFileName=test-results.trx"
 
       - name: 📦 Upload TestResults (trace/screenshot)
         if: always()
@@ -38,7 +41,7 @@ jobs:
         with:
           name: TestResults
           path: |
-            **/TestResults/
-            **/videos/
-            **/screenshots/
-            **/traces/
+            PlaywrightDemo/**/TestResults/
+            PlaywrightDemo/**/videos/
+            PlaywrightDemo/**/screenshots/
+            PlaywrightDemo/**/traces/
