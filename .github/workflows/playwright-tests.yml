@@ -12,7 +12,13 @@ jobs:
 
     steps:
       - name: 📥 Checkout repository
-        uses: actions/checkout@v3
+      uses: actions/checkout@v3
+
+      - name: 📁 Change to test project directory
+      working-directory: ./PlaywrightDemo
+
+      - name: 🔧 Restore dependencies
+      run: dotnet restore YourProjectName.csproj
 
       - name: 🔧 Setup .NET SDK
         uses: actions/setup-dotnet@v3
