@@ -27,8 +27,8 @@ jobs:
 
       - name: 🚀 Install Playwright Browsers
         run: |
-          dotnet tool install --global Microsoft.Playwright.CLI
           cd PlaywrightDemo
+          dotnet tool install --global Microsoft.Playwright.CLI
           playwright install
 
       - name: 🧪 Run tests
