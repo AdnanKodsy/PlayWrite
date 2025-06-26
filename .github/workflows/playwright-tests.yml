@@ -12,21 +12,15 @@ jobs:
 
     steps:
       - name: 📥 Checkout repository
-      uses: actions/checkout@v3
-
-      - name: 📁 Change to test project directory
-      working-directory: ./PlaywrightDemo
-
-      - name: 🔧 Restore dependencies
-      run: dotnet restore YourProjectName.csproj
+        uses: actions/checkout@v3
 
       - name: 🔧 Setup .NET SDK
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 8.0.x
 
-      - name: 🧱 Install dependencies
-        run: dotnet restore
+      - name: 📁 Restore dependencies
+        run: dotnet restore PlaywrightDemo/PlaywrightDemo.csproj
 
       - name: 🚀 Install Playwright
         run: |
@@ -34,10 +28,10 @@ jobs:
           playwright install
 
       - name: 🏗️ Build project
-        run: dotnet build --configuration Release
+        run: dotnet build PlaywrightDemo/PlaywrightDemo.csproj --configuration Release
 
       - name: 🧪 Run tests
-        run: dotnet test --configuration Release --logger "trx;LogFileName=test-results.trx"
+        run: dotnet test PlaywrightDemo/PlaywrightDemo.csproj --configuration Release --logger "trx;LogFileName=test-results.trx"
 
       - name: 📦 Upload TestResults (trace/screenshot)
         if: always()
