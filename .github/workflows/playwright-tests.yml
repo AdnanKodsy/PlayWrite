@@ -28,6 +28,7 @@ jobs:
       - name: 🚀 Install Playwright CLI and Browsers
         run: |
           dotnet tool install --global Microsoft.Playwright.CLI
+          dotnet build --configuration Release
           playwright install
         working-directory: PlaywrightDemo
 
