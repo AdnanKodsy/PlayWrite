@@ -25,7 +25,8 @@ jobs:
       - name: 🚀 Install Playwright
         run: |
           dotnet tool install --global Microsoft.Playwright.CLI
-          playwright install -p PlayWright/PlaywrightDemo.csproj
+          cd PlaywrightDemo
+          playwright install
 
       - name: 🏗️ Build project
         run: dotnet build PlaywrightDemo/PlaywrightDemo.csproj --configuration Release
