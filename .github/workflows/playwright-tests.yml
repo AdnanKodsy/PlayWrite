@@ -22,9 +22,6 @@ jobs:
       - name: 📁 Restore dependencies
         run: dotnet restore PlaywrightDemo/PlaywrightDemo.csproj
 
-      - name: 🏗️ Build project
-        run: dotnet build PlaywrightDemo/PlaywrightDemo.csproj --configuration Release
-
       - name: 🚀 Install Playwright CLI and Browsers
         run: |
           dotnet tool install --global Microsoft.Playwright.CLI
