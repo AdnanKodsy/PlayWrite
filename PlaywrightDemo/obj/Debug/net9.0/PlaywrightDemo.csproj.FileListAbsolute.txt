@@ -500,3 +500,4 @@ F:\PlayWrite\PlaywrightDemo\bin\Debug\net9.0\zh-Hans\Microsoft.VisualStudio.Test
 F:\PlayWrite\PlaywrightDemo\bin\Debug\net9.0\zh-Hant\Microsoft.TestPlatform.CommunicationUtilities.resources.dll
 F:\PlayWrite\PlaywrightDemo\bin\Debug\net9.0\zh-Hant\Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 F:\PlayWrite\PlaywrightDemo\bin\Debug\net9.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+F:\PlayWrite\PlaywrightDemo\obj\Debug\net9.0\PlaywrightDemo.sourcelink.json
